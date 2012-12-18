@@ -1,9 +1,10 @@
 set(DOCUMENTATION "This module contains the third party <a
-href=\"http://www.libtiff.org/\">Tag Image File Format (TIFF)</a>
+href=\"http://www.bic.mni.mcgill.ca/ServicesSoftware/MINC\">MINC</a>
 image file format library.")
 
-itk_module(ITKTIFF
+itk_module(ITKMINC2
   DEPENDS
+    ITKHDF5
     ITKKWSys
     ITKZLIB
     ITKJPEG

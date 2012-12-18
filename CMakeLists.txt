@@ -1,33 +1,29 @@
-project(ITKTIFF)
-set(ITKTIFF_THIRD_PARTY 1)
+project(ITKMINC2)
+set(ITKMINC2_THIRD_PARTY 1)
 
-option(ITK_USE_SYSTEM_TIFF "Use system-installed tiff" OFF)
-mark_as_advanced(ITK_USE_SYSTEM_TIFF)
+option(ITK_USE_SYSTEM_MINC2 "Use system-installed MINC2" OFF)
+mark_as_advanced(ITK_USE_SYSTEM_MINC2)
 
-if(ITK_USE_SYSTEM_TIFF)
-  find_package(TIFF REQUIRED)
-  set(ITKTIFF_INCLUDE_DIRS
-    ${ITKTIFF_BINARY_DIR}/src
+if(ITK_USE_SYSTEM_MINC2)
+  find_package(LIBMINC REQUIRED)
+  set(ITKMINC2_SYSTEM_INCLUDE_DIRS
+    ${LIBMINC_INCLUDE_DIRS}
     )
-  set(ITKTIFF_SYSTEM_INCLUDE_DIRS
-    ${TIFF_INCLUDE_DIR}
-    )
-  set(ITKTIFF_LIBRARIES "${TIFF_LIBRARIES}")
-  set(ITKTIFF_NO_SRC 1)
+  set(ITKMINC2_LIBRARIES "${LIBMINC_LIBRARIES}")
 else()
-  set(ITKTIFF_INCLUDE_DIRS
-    ${ITKTIFF_BINARY_DIR}/src
-    ${ITKTIFF_BINARY_DIR}/src/itktiff
-    ${ITKTIFF_SOURCE_DIR}/src
+  set(ITKMINC2_INCLUDE_DIRS
+    ${ITKMINC2_BINARY_DIR}/src
+    ${ITKMINC2_BINARY_DIR}/src/itkminc2
+    ${ITKMINC2_SOURCE_DIR}/src
     )
-  set(ITKTIFF_LIBRARIES itktiff)
+  set(ITKMINC2_LIBRARIES itkminc2)
 endif()
 
-configure_file(src/itk_tiff.h.in src/itk_tiff.h)
+configure_file(src/itk_minc2.h.in src/itk_minc2.h)
 
 itk_module_impl()
 
 if(NOT ITK_INSTALL_NO_DEVELOPMENT)
-  install(FILES ${ITKTIFF_BINARY_DIR}/src/itk_tiff.h
-    DESTINATION ${ITKTIFF_INSTALL_INCLUDE_DIR})
+  install(FILES ${ITKMINC2_BINARY_DIR}/src/itk_minc2.h
+    DESTINATION ${ITKMINC2_INSTALL_INCLUDE_DIR})
 endif(NOT ITK_INSTALL_NO_DEVELOPMENT)
