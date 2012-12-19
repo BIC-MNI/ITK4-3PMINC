@@ -1,4 +1,4 @@
-project(ITKMINC2)
+project(itkminc2)
 set(ITKMINC2_THIRD_PARTY 1)
 
 option(ITK_USE_SYSTEM_MINC2 "Use system-installed MINC2" OFF)
@@ -16,7 +16,7 @@ else()
     ${ITKMINC2_BINARY_DIR}/src/itkminc2
     ${ITKMINC2_SOURCE_DIR}/src
     )
-  set(ITKMINC2_LIBRARIES ITKMINC2)
+  set(ITKMINC2_LIBRARIES itkminc2)
 endif()
 
 configure_file(src/itk_minc2.h.in src/itk_minc2.h)
