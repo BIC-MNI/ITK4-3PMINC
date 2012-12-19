@@ -26,16 +26,15 @@
  *
  *=========================================================================*/
 
-#ifndef __itk_tiff_h
-#define __itk_tiff_h
+#ifndef __itk_minc2_h
+#define __itk_minc2_h
 
 /* Use the tiff library configured for ITK.  */
-#cmakedefine ITK_USE_SYSTEM_TIFF
-#ifdef ITK_USE_SYSTEM_TIFF
-# include <tiffio.h>
+#cmakedefine ITK_USE_SYSTEM_MINC2
+#ifdef ITK_USE_SYSTEM_MINC2
+# include <minc2.h>
 #else
-# include "itktiff/tiffio.h"
-# include "itktiff/tif_dir.h"
+# include "itkminc2/libsrc/minc2.h"
 #endif
 
 #endif
