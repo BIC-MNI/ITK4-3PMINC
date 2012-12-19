@@ -16,7 +16,7 @@ else()
     ${ITKMINC_BINARY_DIR}/src/itkminc2
     ${ITKMINC_SOURCE_DIR}/src
     )
-  set(ITKMINC_LIBRARIES ITKMINC2)
+  set(ITKMINC_LIBRARIES itkminc2)
 endif()
 
 configure_file(src/itk_minc2.h.in src/itk_minc2.h)
