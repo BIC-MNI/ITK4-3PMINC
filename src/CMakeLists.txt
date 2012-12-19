@@ -12,17 +12,21 @@ set(LIBMINC_INSTALL_LIBRARY_DIR ${ITKMINC2_INSTALL_LIBRARY_DIR})
 set(LIBMINC_INSTALL_ARCHIVE_DIR ${ITKMINC2_INSTALL_ARCHIVE_DIR})
 set(LIBMINC_INSTALL_RUNTIME_DIR ${ITKMINC2_INSTALL_RUNTIME_DIR})
 set(LIBMINC_INSTALL_INCLUDE_DIR ${ITKMINC2_INSTALL_INCLUDE_DIR}/itkminc2)
-set(LIBMINC_BUILD_SHARED_LIBS OFF)
 
 # Configuring locations of the libraries from ITK
-# TODO: check if the ITK module is enabled 
+# TODO: check if the ITK module is enabled
 SET(ZLIB_FOUND ON)
 SET(HDF5_FOUND ON)
 
-SET(HDF5_INCLUDE_DIR "${ITKHDF5_INCLUDE_DIRS}/itkhdf5" )
+IF(NOT ITK_USE_SYSTEM_HDF5)
+  include_directories(
+    "${ITKHDF5_SOURCE_DIR}/src/itkhdf5"
+    "${ITKHDF5_BINARY_DIR}/src/itkhdf5"
+    )
+ENDIF()
+
 SET(HDF5_LIBRARY     ${ITKHDF5_LIBRARIES} )
 SET(ZLIB_LIBRARY   ${ITKZLIB_LIBRARIES})
 
 add_subdirectory(itkminc2)
-#add_library(${LIBMINC_EXTERNAL_LIB_PREFIX}minc2 STATIC IMPORTED)
-#itk_module_target(itkminc2)
+# itk_module_target(itkminc2 NO_INSTALL)
