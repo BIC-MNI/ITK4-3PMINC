@@ -1,22 +1,22 @@
-project(itkminc2)
-set(ITKMINC2_THIRD_PARTY 1)
+project(ITKMINC)
+set(ITKMINC_THIRD_PARTY 1)
 
-option(ITK_USE_SYSTEM_MINC2 "Use system-installed MINC2" OFF)
-mark_as_advanced(ITK_USE_SYSTEM_MINC2)
+option(ITK_USE_SYSTEM_MINC "Use system-installed MINC" OFF)
+mark_as_advanced(ITK_USE_SYSTEM_MINC)
 
-if(ITK_USE_SYSTEM_MINC2)
+if(ITK_USE_SYSTEM_MINC)
   find_package(LIBMINC REQUIRED)
-  set(ITKMINC2_SYSTEM_INCLUDE_DIRS
+  set(ITKMINC_SYSTEM_INCLUDE_DIRS
     ${LIBMINC_INCLUDE_DIRS}
     )
-  set(ITKMINC2_LIBRARIES "${LIBMINC_LIBRARIES}")
+  set(ITKMINC_LIBRARIES "${LIBMINC_LIBRARIES}")
 else()
-  set(ITKMINC2_INCLUDE_DIRS
-    ${ITKMINC2_BINARY_DIR}/src
-    ${ITKMINC2_BINARY_DIR}/src/itkminc2
-    ${ITKMINC2_SOURCE_DIR}/src
+  set(ITKMINC_INCLUDE_DIRS
+    ${ITKMINC_BINARY_DIR}/src
+    ${ITKMINC_BINARY_DIR}/src/itkminc2
+    ${ITKMINC_SOURCE_DIR}/src
     )
-  set(ITKMINC2_LIBRARIES itkminc2)
+  set(ITKMINC_LIBRARIES ITKMINC2)
 endif()
 
 configure_file(src/itk_minc2.h.in src/itk_minc2.h)
@@ -24,6 +24,6 @@ configure_file(src/itk_minc2.h.in src/itk_minc2.h)
 itk_module_impl()
 
 if(NOT ITK_INSTALL_NO_DEVELOPMENT)
-  install(FILES ${ITKMINC2_BINARY_DIR}/src/itk_minc2.h
-    DESTINATION ${ITKMINC2_INSTALL_INCLUDE_DIR})
+  install(FILES ${ITKMINC_BINARY_DIR}/src/itk_minc2.h
+    DESTINATION ${ITKMINC_INSTALL_INCLUDE_DIR})
 endif(NOT ITK_INSTALL_NO_DEVELOPMENT)
