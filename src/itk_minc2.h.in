@@ -30,8 +30,8 @@
 #define __itk_minc2_h
 
 /* Use the tiff library configured for ITK.  */
-#cmakedefine ITK_USE_SYSTEM_MINC2
-#ifdef ITK_USE_SYSTEM_MINC2
+#cmakedefine ITK_USE_SYSTEM_MINC
+#ifdef ITK_USE_SYSTEM_MINC
 # include <minc2.h>
 #else
 # include "itkminc2/libsrc2/minc2.h"
