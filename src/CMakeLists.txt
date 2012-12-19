@@ -29,4 +29,5 @@ SET(HDF5_LIBRARY   ${ITKHDF5_LIBRARIES} )
 SET(ZLIB_LIBRARY   ${ITKZLIB_LIBRARIES})
 
 add_subdirectory(itkminc2)
-itk_module_target(itkminc2 NO_INSTALL)#NO_INSTALL
+
+itk_module_target(itkminc2 NO_INSTALL)#
