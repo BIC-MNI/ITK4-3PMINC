@@ -16,6 +16,14 @@ else()
     ${ITKMINC_BINARY_DIR}/src/itkminc2
     ${ITKMINC_SOURCE_DIR}/src
     )
+
+  if(NOT ITK_USE_SYSTEM_HDF5)
+    set(ITKMINC_INCLUDE_DIRS ${ITKMINC_INCLUDE_DIRS}
+        "${ITKHDF5_SOURCE_DIR}/src/itkhdf5"
+        "${ITKHDF5_BINARY_DIR}/src/itkhdf5"
+        )
+  endif()
+
   set(ITKMINC_LIBRARIES itkminc2)
 endif()
 
