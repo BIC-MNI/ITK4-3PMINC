@@ -1,3 +1,0 @@
-[submodule "src/itkminc2"]
-	path = src/itkminc2
-	url = https://github.com/BIC-MNI/libminc.git
