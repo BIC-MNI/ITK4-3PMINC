@@ -34,7 +34,7 @@
 #ifdef ITK_USE_SYSTEM_MINC
 # include <minc2.h>
 #else
-# include "itkminc2/libsrc2/minc2.h"
+# include "libsrc2/minc2.h"
 #endif
 
 #endif

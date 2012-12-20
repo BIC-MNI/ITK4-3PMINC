@@ -11,7 +11,7 @@ if(NOT ITK_USE_SYSTEM_MINC)
   else()
     set(_ITKMINC_LIB_LINKAGE STATIC)
   endif()
-  set(MINC_LIBRARY_NAME itkminc2)
+  set(MINC_LIBRARY_NAME minc2)
   # add it as an imported  library target
   add_library(${MINC_LIBRARY_NAME} ${_ITKMINC_LIB_LINKAGE} IMPORTED)
 endif(NOT ITK_USE_SYSTEM_MINC)
